@@ -17,17 +17,17 @@ import java.util.Iterator;
  * pull request author whitelist.
  */
 @Extension
-public class WhitelistGlobalConfigurationSource extends GlobalConfiguration implements WhitelistSource {
+public class GlobalConfigurationWhitelistSource extends GlobalConfiguration implements WhitelistSource {
 
-    public static WhitelistGlobalConfigurationSource get() {
-        return GlobalConfiguration.all().get(WhitelistGlobalConfigurationSource.class);
+    public static GlobalConfigurationWhitelistSource get() {
+        return GlobalConfiguration.all().get(GlobalConfigurationWhitelistSource.class);
     }
 
     private String pullRequestWhitelist;
 
     private Set<String> userIds;
 
-    public WhitelistGlobalConfigurationSource() {
+    public GlobalConfigurationWhitelistSource() {
         load();
     }
 
