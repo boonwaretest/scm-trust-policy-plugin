@@ -1,0 +1,40 @@
+
+plugins {
+    id 'org.jenkins-ci.jpi' version '0.25.0'
+    id 'groovy'
+    id 'pmd'
+    id 'findbugs'
+    id 'checkstyle'
+    id 'jacoco'
+}
+
+group = 'org.jenkins-ci.plugins'
+version = '1.0.0'
+description = 'A Jenkins plugin defining trust policies for executing Jenkinsfiles changes'
+
+jenkinsPlugin {
+    //coreVersion = '2.107.1' See https://issues.jenkins-ci.org/browse/JENKINS-47988
+    coreVersion = '2.60'
+
+    shortName = 'pipeline-trust-policy'
+
+    displayName = 'Pipeline Trust Policy plugin'
+
+    url = 'http://wiki.jenkins-ci.org/display/JENKINS/SomePluginPage'
+
+    gitHubUrl = 'https://github.com/boonware/pipeline-trust-policy-plugin'
+
+    fileExtension = 'jpi'
+}
+
+repositories {
+    maven { url 'http://bits.netbeans.org/maven2' }
+    maven { url 'http://repo.jenkins-ci.org/releases' }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    jenkinsPlugins 'org.jenkins-ci.plugins:scm-api:2.2.6'
+    jenkinsPlugins 'org.jenkins-ci.plugins:github-branch-source:2.3.3'
+}
